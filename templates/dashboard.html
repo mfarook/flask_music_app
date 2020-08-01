@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Welcome {{session.username}} </h1>
+
+<div class="container">
+  <a href="/upload_song" class="btn btn-info" role="button">Upload songs</a>
+</div>
+<hr>
+<table class="table table-stripped table-hover">
+	<tr>
+		<th>PLAYLIST NAME</th>
+		<th></th>
+	</tr>
+	{% for song in songs %}
+	<tr>
+		<td><a href="play_playlist/{{song.id}}"  class="btn btn-default">{{song.title}}</a></td>
+
+		<td></td>
+		<td><a href="play_playlist/{{song.id}}" class="btn btn-default pull-right">PLAY</a></td>
+		<td><a href="download/{{song.id}}" class="btn btn-default pull-right ">DOWNLOAD</a></td>
+		<td><a href="delete_playlist/{{song.id}}" class="btn btn-default pull-right">DELETE</a></td>
+		<td><input type="text" value="{{share_url}}{{song.id}}" id="myInput{{song.id}}"><button onclick="myFunction({{song.id}})">Copy sharable link</button></a></td>
+		<td></td>
+	</tr>
+	{% endfor %}
+</table>
+<script>
+function myFunction(id) {
+	/* Get the text field */
+	var input_name = "myInput"+id
+	var copyText = document.getElementById(input_name);
+  
+	/* Select the text field */
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+  
+	/* Copy the text inside the text field */
+	document.execCommand("copy");
+  }
+</script>
+{% endblock %}
