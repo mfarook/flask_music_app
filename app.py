@@ -199,6 +199,9 @@ def upload_file():
            row1=cur.execute("SELECT * FROM users WHERE username = %s",[username])
            result1=cur.fetchone()
            id=result1['id']
+           if title==None:
+               title=path
+               title=title.rsplit('/', 1)[-1]
            sql="insert into songs(title,path,album,artist,user_id) values (%s,%s,%s,%s,%s)"
            val = (title,path,album,artist,id)
            cur.execute(sql, val)
@@ -233,16 +236,13 @@ def downloadFile (idd):
     cur=mysql.connection.cursor()
     cur.execute("SELECT * FROM songs WHERE id =%s",[idd])
     result=cur.fetchone()
-    res=result['title']
+    res=result['path']
     res=res.rsplit('/', 1)[-1]
     if res is None:
         flash("no song in playlist",'danger')
         return redirect(url_for('dashboard'))
     else:
-        uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
-        path=uploads+'/'+res
-        send_file(path, as_attachment=True)
-        return redirect(url_for('dashboard'))
+        return render_template('download.html',path=res)
 
 @app.route('/delete_playlist/<string:idd>')
 @is_logged_in
