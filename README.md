@@ -1,5 +1,6 @@
 Flask-Music-app
 A Simple MUsic web app with flask as framework in python, mysql as database that can play music,manage playlists,Download songs,etc.
+
 Prerequisites
 Python 3.0
 mysql
