@@ -19,6 +19,7 @@ Installing Packages
 Import sql table
 * Create Database named as my_music.
 * run all .sql files placed under music.sql with root user
+* Make sure you truncate all the tables 
 How to Run app:
 * Clone the repo to your local machine.
 * Install the above given packages.
