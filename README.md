@@ -31,9 +31,7 @@ Features
  * Login
  * Register and verify using Confirmation mail.
  * Play albums using music player.
- * Download any song of your choice from Search bar.
- * Create Private and public playlists.
- * See the other users Public playlists.
+ * Download any song of your choice.
 How to Contribute:
   * Fork the project using the fork option.
   * Clone this repository to your local machine.
