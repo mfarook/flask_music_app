@@ -4,6 +4,7 @@ A Simple MUsic web app with flask as framework in python, mysql as database that
 Prerequisites
 Python 3.0
 mysql
+
 Packages required:
 flask
 passlib
@@ -12,6 +13,7 @@ flask_mysqldb
 wtforms
 bs4
 TinyTag
+
 Installing Packages
 * Do pip3 install -r requirements.txt
 Import sql table
